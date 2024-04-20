@@ -7,6 +7,7 @@ import CounterTodo from "./CounterTodo"
 
 const TodoList= ()=>{
     const[todo, setTodo]= useState('')
+    const[addTodo, setAddTodo]= useState([])
     const[done, setDone]= useState(null) /*MOMENTANEAMENTO SERÁ NULL. QUIZÁ SEA UN BOOLEANO  */
 
 
@@ -15,10 +16,10 @@ const TodoList= ()=>{
             <div className='container d-flex justify-content-center col-4 mt-5 bg-light'>
                 <h1>TODOS</h1>
             </div>
-            <InputTodo setTodo={setTodo}/>
+            <InputTodo setTodo={setTodo} todo={todo} addTodo={addTodo} setAddTodo={setAddTodo}/>
             <AddTodo />
             <div className='container d-flex justify-content-start col-4 mt-5 bg-light'>
-                {todo} 
+                {todo}
             </div>
             <CounterTodo />
         </>

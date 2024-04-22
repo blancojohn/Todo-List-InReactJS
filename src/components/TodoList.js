@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import InputTodo from "./InputTodo";
 import AddTodo from "./AddTodo";
 import CounterTodo from "./CounterTodo"
 
@@ -13,14 +12,10 @@ const TodoList= ()=>{
 
     return(
         <>
-            <div className='container d-flex justify-content-center col-4 mt-5 bg-light'>
+            <div className='container d-flex justify-content-center col-3 mt-5 bg-light'>
                 <h1>TODOS</h1>
             </div>
-            <InputTodo setTodo={setTodo} todo={todo} addTodo={addTodo} setAddTodo={setAddTodo}/>
-            <AddTodo />
-            <div className='container d-flex justify-content-start col-4 mt-5 bg-light'>
-                {todo}
-            </div>
+            <AddTodo setTodo={setTodo} todo={todo} addTodo={addTodo} setAddTodo={setAddTodo} />
             <CounterTodo />
         </>
     )

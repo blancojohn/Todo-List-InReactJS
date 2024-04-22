@@ -1,14 +1,35 @@
 import React from "react";
 
+let nextId= 0;
+const AddTodo= ({todo, setTodo, addTodo, setAddTodo})=>{
+    const handleKeyEnter= (e)=>{
+        if(e.keyCode === 13){
+            setAddTodo([...addTodo,
+            { id: nextId++, todo: todo}
+            ]);
+        }
+    } 
 
-const AddTodo= ({})=>{
     return(
         <>
-            <div className='container d-flex justify-content-start col-4 bg-light'>
-                AddTodo
+            <div className='container d-flex justify-content-start col-3 bg-light'>
+                <input type='texto' placeholder='What need to be done?' onChange={(e)=>{setTodo(e.target.value)}} value={todo} onKeyDown={handleKeyEnter}></input>
             </div>
+
+            <div className="container d-flex justify-content-start col-3 bg-light">
+                    <ul>
+                        {
+                            addTodo && addTodo.map((pendiente, index)=>(
+                                <li key={index} onKeyDown={handleKeyEnter}>{pendiente.todo}</li>
+                            ))
+                        }
+                    </ul>
+            </div>
+           
         </>
     )
 }
 
 export default AddTodo
+                
+                

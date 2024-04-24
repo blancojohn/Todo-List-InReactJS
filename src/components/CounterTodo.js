@@ -1,12 +1,12 @@
 import React from "react";
 
 
-const CounterTodo = ({counterTodo}) => {
+const CounterTodo = ({numberTodos}) => {
     return (
         <>  
             <div className="container d-flex justify-content-start col-3 bg-light">
                 <h5>
-                    {counterTodo} tareas pendientes.
+                    {numberTodos} tareas pendientes.
                 </h5>
             </div>
         </>

@@ -6,22 +6,22 @@ import CounterTodo from "./CounterTodo"
 let initialCounter=[0]
 
 const TodoList= ()=>{
-    const[todo, setTodo]= useState('')
-    const[addTodo, setAddTodo]= useState([])
-    const[counterTodo, setCounterTodo]= useState(initialCounter)
+    const[inputTodo, setInputTodo]= useState('')
+    const[todos, setTodos]= useState([])
+    const[numberTodos, setNumberTodos]= useState(initialCounter)
     const[lessTodo, setLessTodo]= useState(false)
 
     useEffect(()=>{
-        setCounterTodo(addTodo.length)
-    },[addTodo])
+        setNumberTodos(todos.length)
+    },[todos])
 
     return(
         <>
             <div className='container d-flex justify-content-center col-3 mt-5 bg-light'>
                 <h1>TODO-LIST</h1>
             </div>
-            <AddTodo setTodo={setTodo} todo={todo} addTodo={addTodo} setAddTodo={setAddTodo} lessTodo={lessTodo} setLessTodo={setLessTodo}/>
-            <CounterTodo counterTodo={counterTodo} setCounterTodo={setCounterTodo}/>
+            <AddTodo setInputTodo={setInputTodo} inputTodo={inputTodo} todos={todos} setTodos={setTodos} lessTodo={lessTodo} setLessTodo={setLessTodo}/>
+            <CounterTodo numberTodos={numberTodos} setNumberTodos={setNumberTodos}/>
         </>
     )
 }

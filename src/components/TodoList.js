@@ -9,7 +9,7 @@ const TodoList= ()=>{
     const[todo, setTodo]= useState('')
     const[addTodo, setAddTodo]= useState([])
     const[counterTodo, setCounterTodo]= useState(initialCounter)
-    const[done, setDone]= useState(null) /*MOMENTANEAMENTO SERÁ NULL. QUIZÁ SEA UN BOOLEANO  */
+    const[lessTodo, setLessTodo]= useState(false)
 
     useEffect(()=>{
         setCounterTodo(addTodo.length)
@@ -20,7 +20,7 @@ const TodoList= ()=>{
             <div className='container d-flex justify-content-center col-3 mt-5 bg-light'>
                 <h1>TODO-LIST</h1>
             </div>
-            <AddTodo setTodo={setTodo} todo={todo} addTodo={addTodo} setAddTodo={setAddTodo} />
+            <AddTodo setTodo={setTodo} todo={todo} addTodo={addTodo} setAddTodo={setAddTodo} lessTodo={lessTodo} setLessTodo={setLessTodo}/>
             <CounterTodo counterTodo={counterTodo} setCounterTodo={setCounterTodo}/>
         </>
     )

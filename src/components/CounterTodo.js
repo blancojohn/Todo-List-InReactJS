@@ -5,9 +5,9 @@ const CounterTodo = ({counterTodo}) => {
     return (
         <>  
             <div className="container d-flex justify-content-start col-3 bg-light">
-                <p>
+                <h5>
                     {counterTodo} tareas pendientes.
-                </p>
+                </h5>
             </div>
         </>
     )

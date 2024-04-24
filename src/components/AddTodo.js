@@ -2,7 +2,7 @@ import React from "react";
 
 let nextId = 1;
 
-const AddTodo = ({ todo, setTodo, addTodo, setAddTodo}) => {
+const AddTodo = ({ todo, setTodo, addTodo, setAddTodo, lessTodo, setLessTodo}) => {
 
     const handleKeyEnter = (e) => {
         if (e.keyCode === 13) {
@@ -22,7 +22,13 @@ const AddTodo = ({ todo, setTodo, addTodo, setAddTodo}) => {
                 <ul>
                     {
                         addTodo && addTodo.map((task, index) => (
-                            <li key={index} onKeyDown={handleKeyEnter}>{task.todo}</li>
+                            <li key={index} onKeyDown={handleKeyEnter} onMouseOver={()=>setLessTodo(true)} onMouseOut={()=>setLessTodo(false)}>
+                                {task.todo} {lessTodo && (<button onClick={()=>{
+                                    setAddTodo(
+                                        addTodo.filter(a => a.id !== task.id)
+                                    )
+                                }}>X</button>)}
+                            </li>
                         ))
                     }
                 </ul>
@@ -33,6 +39,7 @@ const AddTodo = ({ todo, setTodo, addTodo, setAddTodo}) => {
 }
 
 export default AddTodo
+
 
 
 
